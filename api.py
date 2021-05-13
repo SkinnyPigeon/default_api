@@ -12,9 +12,7 @@ import json
 
 FLASK_DEBUG=1
 
-project_folder = subprocess.check_output("pwd", shell=True)
-print(project_folder.decode("utf-8"))
-load_dotenv(os.path.join(project_folder.decode("utf-8"), '.env'))
+project_folder = subprocess.check_output("pwd", shell=True).decode("utf-8").rstrip()
+load_dotenv(os.path.join(project_folder, '.env'))
 PORT = os.getenv('PGPORT')
 PASSWORD = os.getenv('PGPASSWORD')
-print(PORT)
